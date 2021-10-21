@@ -1,0 +1,39 @@
+//Write a c program to create a linked list by inserting notes in right hand side.Then print the list
+
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct Node{
+	int val;
+	struct Node*next=NULL;
+}Node;
+
+Node* insertAtEnd(Node* head,int data){
+	if(head==NULL){
+		head->val=data;
+
+	}else{
+		Node *temp =(Node*)malloc(sizeof(Node));
+		temp->val=data;
+		head->next=temp;
+		head=temp;
+	}
+	return head;
+}
+void display(Node *head){
+	while(head!=NULL){
+		printf("%d ",head->val);
+		head=head->next;
+	}
+}
+int main(){
+
+	Node *head;
+	Node* curr =head;
+	head=insertAtEnd(head,10);
+	head=insertAtEnd(head,11);
+	head=insertAtEnd(head,50);
+	head=insertAtEnd(head,30);
+	display(curr);
+
+return 0;
+}
