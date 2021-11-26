@@ -1,0 +1,46 @@
+//Single inheritance only one base class should be inherited
+#include<iostream>
+using namespace std;
+class Base{
+	int data1;
+	public:
+	Base(){}
+	int data2;
+	int getData1();
+	int getData2();
+	void  setData();
+};
+int Base :: getData1(){
+	return data1;
+}
+int Base :: getData2(){
+	return data2;
+}
+void Base :: setData(){
+	data1 = 40;
+	data2=50;
+}
+class Derived : public Base{
+	int data3;
+	public:
+	Derived(){
+	data3=0;}
+		void process();
+		void display();
+};
+void Derived :: process(){
+	data3=data2* getData1();
+}
+void Derived :: display(){
+	cout<<" Inside Derived class"<<endl;
+	
+	cout<<" Value of data1 "<<getData1()<<endl;
+	cout<<" Value of data2 "<<data2<<endl
+	cout<<" Process data "<< data3<<endl;
+}
+int main(){
+	Derived d1;
+	d1.setData();
+	d1.process();
+	d1.display();
+}
