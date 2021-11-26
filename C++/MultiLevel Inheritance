@@ -1,0 +1,42 @@
+//level wise inheritance
+#include<iostream>
+using namespace std;
+class Student{
+	protected:
+		int roll;
+	public:
+		void putRoll(){
+			cout<<"Roll number is "<<roll<<endl;
+		}
+		void getRoll(int x){
+			roll=x;
+		}
+};
+class test :public Student{
+	protected:
+		float m1,m2;
+	public:
+		void getMarks(float x,float y){
+			m1=x;
+			m2=y;
+		}
+		void putMarks(){
+			cout<<"Marks are "<<m1<<" "<<m2<<endl;
+		}
+};
+class result:public test{
+	float total;
+	public:
+	void display(){
+		total=m1+m2;
+		putRoll();
+		putMarks();
+		cout<<"Total marks "<<total<<endl;
+	}
+};
+int main(){
+	result r1;
+	r1.getMarks(50,29);
+	r1.getRoll(60);
+	r1.display();
+}
