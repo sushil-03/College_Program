@@ -1,0 +1,82 @@
+//Write a c program to create a linked list by adding nodes to the right and enter the key and find remove a key from the list
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct Node_struct{
+	int data;
+	struct Node_struct *next;
+}Node;
+void insertingNodes(Node** head,int val){
+	if(head==NULL){
+		(*head)->data=val;	
+		return ;
+	}
+	Node* temp= (Node*)malloc(sizeof(Node));
+	temp->data=val;
+	temp->next=NULL;
+	Node* helper = *head;
+	while(helper->next!=NULL){
+	    helper=helper->next;
+	}
+	helper->next=temp;
+	
+}
+Node* deleteKey(Node* head,int val){
+	if(head==NULL){
+		printf(" list is empty ");
+		return NULL;
+	}
+	//If first node is the required val
+	if(head->data==val){
+		Node *temp= head;
+		head=head->next;
+		temp->next=NULL;
+		free(temp);
+	
+	    return head;
+	}
+	//Between
+	Node* prev;
+	Node* temp=head;
+	while(temp!=NULL){
+		if(temp->data==val){
+			break;
+		}
+		prev=temp;
+		temp=temp->next;
+	}
+	if(temp==NULL){
+	    printf("No match ");
+	    return NULL;
+	}
+	//at last
+	prev->next=temp->next;
+	return head;
+}
+
+void print(Node* head){
+
+    while(head!=NULL){
+        printf("%d ",(head)->data);
+	    head= (head)->next;
+    }
+	printf("\n");
+}
+
+int main(){
+	
+	Node* head =(Node*)malloc(sizeof(Node));
+	Node *original_head=head;
+	insertingNodes(&head,5);
+	insertingNodes(&head,15);
+	insertingNodes(&head,25);
+	insertingNodes(&head,35);
+	insertingNodes(&head,45);
+	head=head->next;
+	print(head);
+// 	deleteKey(original_head,15);
+	Node *t=deleteKey(head,5);
+
+		print(t);
+
+	return 0;
+}
