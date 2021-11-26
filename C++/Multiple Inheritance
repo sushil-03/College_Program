@@ -1,0 +1,43 @@
+//MUltiple inheritance
+#include<iostream>
+using namespace std;
+class A{
+	protected:
+		int m;
+	public:
+		A(){};
+		void getDataM(int val){
+			m=val;
+		}
+};
+class B{
+	protected:
+		int n;
+	public:
+		B(){};
+		void getDataN(int val){
+			n=val;
+		}
+};
+class C:public A,public B{
+	protected:
+		int result;
+	public:
+		void display();
+		int add();	
+		
+};
+void C :: display(){
+	cout<<" Inside C class "<<endl;
+	cout<<" Result "<< result<<endl;
+}
+int C :: add(){
+	result =m+n;
+}
+int main(){
+	C c1;
+	c1.getDataM(50);
+	c1.getDataN(60);
+	c1.add();
+	c1.display();
+}
