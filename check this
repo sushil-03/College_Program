@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+class distance{
+    private:
+    int m,cm;
+    public:
+    void input()
+     {
+        cout<<"enter value in meter and centemeter : "<<endl;
+        cin>>m>>cm;
+     }
+    distance add(distance a)
+     {
+         distance temp;
+         
+         temp.m=a.m+m;
+         temp.cm=a.cm+cm;
+         return temp;
+     }
+    void display()
+     {
+         cout<<"valur of m : "<<m<<endl;
+         cout<<"value of cn : "<<cm;
+     }
+};
+
+
+int main()
+{
+    distance obj1,obj2,obj3;
+    obj1.input();
+    obj2.input();
+    obj3 =  obj1.add(obj2);
+    obj3.display();
+}
+
+
