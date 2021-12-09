@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+class A{
+        public:
+        virtual void func1(){
+                cout<<"Called function 1"<<endl;
+        }
+};
+class B:public A{
+        public:
+        void func1(){
+                cout<<"Called function 2"<<endl;
+        }
+};
+int main(){
+        B obj;
+        obj.func1();
+        A *p;
+        p=&obj;
+//Pointer is of class A and stored the address of class B BUT it point to the function of class A
+        p->func1();
+}
+~    
