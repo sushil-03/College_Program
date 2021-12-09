@@ -1,21 +1,26 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-class distance{
+class Dist{
+   
     private:
     int m,cm;
     public:
+     Dist(){
+         m=0;
+         cm=0;
+     }
     void input()
      {
         cout<<"enter value in meter and centemeter : "<<endl;
         cin>>m>>cm;
      }
-    distance add(distance a)
+    void add(Dist a,Dist b)
      {
-         distance temp;
-         
-         temp.m=a.m+m;
-         temp.cm=a.cm+cm;
-         return temp;
+
+     
+         m=a.m+b.m;
+            cm=a.cm+b.cm;
+         return ;
      }
     void display()
      {
@@ -27,11 +32,10 @@ class distance{
 
 int main()
 {
-    distance obj1,obj2,obj3;
+  
+  Dist obj1,obj2,obj3;
     obj1.input();
     obj2.input();
-    obj3 =  obj1.add(obj2);
+    obj3.add(obj2,obj1);
     obj3.display();
 }
-
-
