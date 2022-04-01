@@ -21,3 +21,22 @@ The figure also shows the minimum information required for each class.
 Specify all the classes and define method to create the database and 
 retrieve individual information as and when required.
 */
+class Staff{
+    string name;
+    int code;
+}
+class Teacher extends Staff{
+    string subject;
+    string publication;
+}
+class Typist extends Staff{
+    int speed;
+}
+class Officer extends Staff{
+    char  grade;
+}
+public class Database{
+	public static void main(String []args){
+		
+	}
+}
