@@ -33,7 +33,7 @@ int main()
   for(time=0;remain!=n;time++){
       int small=INT_MAX,indx;
       for(int i=0;i<n;i++){
-          if(remainingTime[i]!=0  && arr[i].at <=i && remainingTime[i]<small){
+          if(remainingTime[i]!=0  && arr[i].at <=time && remainingTime[i]<small){
               small=remainingTime[i];
               indx=i;
           }
